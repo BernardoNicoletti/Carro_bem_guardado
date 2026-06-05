@@ -1,0 +1,38 @@
+@model TabelaPreco
+
+<h2>Adicionar Nova Tabela de Preços</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Vigência Inicial</label>
+        <input asp-for="VigenciaInicio" class="form-control" type="date" />
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label>Vigência Final</label>
+        <input asp-for="VigenciaFim" class="form-control" type="date" />
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label>Valor Hora Inicial</label>
+        <input asp-for="ValorHoraInicial" class="form-control" type="number"/>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <label>Valor Hora Adicional</label>
+        <input asp-for="ValorHoraAdicional" class="form-control" type="number"/>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Salvar</button>
+
+</form>
+
+<br />
+
+<a asp-action="Index" class="btn btn-secondary">Voltar para Lista</a>

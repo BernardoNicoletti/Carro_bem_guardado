@@ -1,0 +1,30 @@
+@model List<TabelaPreco>
+
+<h2>Tabela de Preços</h2>
+
+<a asp-action="Create" class="btn btn-success">Adicionar Nova Tabela</a>
+<br />
+<br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Vigência Inicial</th>
+            <th>Vigência Final</th>
+            <th>Hora Inicial</th>
+            <th>Hora Adicional</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var tabela in Model)
+        {
+            <tr>
+                <td>@tabela.VigenciaInicio.ToString("d")</td>
+                <td>@tabela.VigenciaFim.ToString("d")</td>
+                <td>@tabela.ValorHoraInicial.ToString("C")</td>
+                <td>@tabela.ValorHoraAdicional.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>

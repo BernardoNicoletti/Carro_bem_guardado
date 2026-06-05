@@ -1,0 +1,17 @@
+@model Veiculo 
+
+<h2>Registrar Entrada</h2>
+
+<form asp-action="Entrada" method="post">
+    <div class="form-group">
+
+        <label>Placa</label>
+
+        <input asp-for="Placa" class="form-control" />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Marcar Entrada</button>
+</form>
+
+<br />
+<a asp-action="Index" class="btn btn-secondary">Voltar para Lista</a>

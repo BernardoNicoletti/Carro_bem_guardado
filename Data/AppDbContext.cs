@@ -7,4 +7,6 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Veiculo> Veiculos { get; set; }
+
+    public DbSet<TabelaPreco> TabelasPreco { get; set; }
 }

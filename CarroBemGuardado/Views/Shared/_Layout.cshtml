@@ -1,3 +1,4 @@
+@using System.Globalization
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,12 +10,15 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" asp-action="Index" asp-controller="Estacionamento">Estacionamento</a>
+            
+            <a class="navbar-brand" asp-action="Index" asp-controller="Estacionamento">
+                Estacionamento &nbsp;&nbsp;&nbsp;&nbsp; @DateTime.Now.ToString("dddd, dd 'de' MMMM 'de' yyyy - HH:mm:ss", new CultureInfo("pt-BR"))
+            </a>
 
             <div class="navbar-nav">
                 <a class="nav-link" asp-action="Index" asp-controller="Estacionamento">Veículos</a>
 
-                <a class="nav-link" asp-action="Entrada" asp-controller="TabelaPreco">Nova Entrada</a>
+                <a class="nav-link" asp-action="Entrada" asp-controller="Estacionamento">Nova Entrada</a>
 
                 <a class="nav-link" asp-action="Index" asp-controller="TabelaPreco">Tabelas de Preço</a>
 

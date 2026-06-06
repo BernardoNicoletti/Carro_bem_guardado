@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 public class EstacionamentoController : Controller
 {
     private readonly AppDbContext _context;
@@ -7,6 +9,12 @@ public class EstacionamentoController : Controller
     {
         _context = context;
         _service = service;
+    }
+
+    public IActionResult Index()
+    {
+        var veiculos = _context.Veiculos.ToList();
+        return View(veiculos);
     }
 
     public IActionResult Entrada()

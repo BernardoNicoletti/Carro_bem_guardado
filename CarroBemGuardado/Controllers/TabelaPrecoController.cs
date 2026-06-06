@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc;
+
 public class TabelaPrecoController : Controller
 {
     private readonly AppDbContext _context;

@@ -1,0 +1,45 @@
+@model List<Veiculo>
+
+<h2>Veículos Estacionados</h2>
+
+<a asp-action="Entrada" class="btn btn-success">Registrar Entrada</a>
+<br />
+<br />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Placa</th>
+            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Horário de Chegada</th>
+            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Horário de Saída</th>
+            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Duração</th>
+            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Tempo Cobrado(hora)</th>
+            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Preço</th>
+            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Valor a pagar</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var veiculo in Model)
+        {
+            <tr>
+                <td style="font-weight: bold; text-align: center;">@veiculo.Placa</td>
+                <td style="font-weight: bold; text-align: center;">@veiculo.DataEntrada.ToString("g")</td>
+                <td style="font-weight: bold; text-align: center;">@(veiculo.DataSaida == null ? "Ainda estacionado" : veiculo.DataSaida.Value.ToString("g"))</td>
+                <td style="font-weight: bold; text-align: center;">@(veiculo.DataSaida == null ? "N/A" : (veiculo.DataSaida.Value - veiculo.DataEntrada).TotalHours.ToString("F2"))</td>
+                <td style="font-weight: bold; text-align: center;">@(veiculo.DataSaida == null ? "N/A" : Math.Ceiling((veiculo.DataSaida.Value - veiculo.DataEntrada).TotalHours).ToString())</td>
+                <td style="color: #1d8144; font-weight: bold; background-color: #d4d4d4;">@(veiculo.ValorPago > 0 ? veiculo.ValorPago.ToString("C") : "N/A")</td>
+                <td style="font-weight: bold; text-align: center;">
+                    @if (veiculo.DataSaida == null)
+                    {
+                        <a asp-action="Saida" asp-route-placa="@veiculo.Placa" class="btn btn-danger">Registrar Saída</a>
+                    }
+                    else
+                    {
+                        @veiculo.ValorPago.ToString("C")
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

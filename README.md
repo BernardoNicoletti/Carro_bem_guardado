@@ -16,7 +16,7 @@ O **Carro Bem Guardado** é uma aplicação desenvolvida em ASP.NET Core MVC que
 * Persistência de dados utilizando SQLite;
 * Interface web utilizando Bootstrap.
 
-## 🛠 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 * C#
 * ASP.NET Core MVC

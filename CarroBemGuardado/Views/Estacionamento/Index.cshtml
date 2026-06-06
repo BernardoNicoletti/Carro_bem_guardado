@@ -9,13 +9,13 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Placa</th>
-            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Horário de Chegada</th>
-            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Horário de Saída</th>
-            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Duração</th>
-            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Tempo Cobrado(hora)</th>
-            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Preço</th>
-            <th style="background-color: #465ee9; color: rgb(201, 204, 41);">Valor a pagar</th>
+            <th style="background-color: #465ee9; color: rgb(232, 235, 69);">Placa</th>
+            <th style="background-color: #465ee9; color: rgb(232, 235, 69);">Horário de Chegada</th>
+            <th style="background-color: #465ee9; color: rgb(232, 235, 69);">Horário de Saída</th>
+            <th style="background-color: #465ee9; color: rgb(232, 235, 69);">Duração</th>
+            <th style="background-color: #465ee9; color: rgb(232, 235, 69);">Tempo Cobrado(hora)</th>
+            <th style="background-color: #465ee9; color: rgb(232, 235, 69);">Preço</th>
+            <th style="background-color: #465ee9; color: rgb(232, 235, 69);">Valor a pagar</th>
         </tr>
     </thead>
 
@@ -23,10 +23,10 @@
         @foreach (var veiculo in Model)
         {
             <tr>
-                <td style="font-weight: bold; text-align: center;">@veiculo.Placa</td>
-                <td style="font-weight: bold; text-align: center;">@veiculo.DataEntrada.ToString("g")</td>
-                <td style="font-weight: bold; text-align: center;">@(veiculo.DataSaida == null ? "Ainda estacionado" : veiculo.DataSaida.Value.ToString("g"))</td>
-                <td style="font-weight: bold; text-align: center;">@(veiculo.DataSaida == null ? "N/A" : (veiculo.DataSaida.Value - veiculo.DataEntrada).TotalHours.ToString("F2"))</td>
+                <td style="font-weight: bold; text-align: center; background-color: #d4d4d4;">@veiculo.Placa</td> 
+                <td style="font-weight: bold; text-align: center; background-color: #d4d4d4;">@veiculo.DataEntrada.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                <td style="font-weight: bold; text-align: center; background-color: #d4d4d4;">@(veiculo.DataSaida == null ? "Ainda estacionado" : veiculo.DataSaida.Value.ToString("dd/MM/yyyy HH:mm:ss"))</td>
+                <td style="font-weight: bold; text-align: center;">@(veiculo.DataSaida == null ? "N/A" : (veiculo.DataSaida.Value - veiculo.DataEntrada).ToString(@"hh\:mm\:ss"))</td>
                 <td style="font-weight: bold; text-align: center;">@(veiculo.DataSaida == null ? "N/A" : Math.Ceiling((veiculo.DataSaida.Value - veiculo.DataEntrada).TotalHours).ToString())</td>
                 <td style="color: #1d8144; font-weight: bold; background-color: #d4d4d4;">@(veiculo.ValorPago > 0 ? veiculo.ValorPago.ToString("C") : "N/A")</td>
                 <td style="font-weight: bold; text-align: center;">
